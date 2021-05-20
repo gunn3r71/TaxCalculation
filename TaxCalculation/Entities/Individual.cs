@@ -20,7 +20,10 @@ namespace TaxCalculation.Entities
 
         public override decimal TaxCalculation()
         {
-            throw new NotImplementedException();
+            var baseTax = (this.AnnualIncome < 20000M) ? 0.15M : 0.25M;
+            var healthExpenditures = (this.HealthCareSpending > 0.00M) ? 0.50M : 0.00M;
+
+            return (this.AnnualIncome * baseTax) - (this.HealthCareSpending * healthExpenditures);
         }
     }
 }

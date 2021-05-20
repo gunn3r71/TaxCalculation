@@ -20,7 +20,8 @@ namespace TaxCalculation.Entities
 
         public override decimal TaxCalculation()
         {
-            throw new NotImplementedException();
+            var baseTax = (this.NumberOfEmployees <=  10) ? 0.16M : 0.14M;
+            return (this.AnnualIncome * baseTax);
         }
     }
 }
