@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace TaxCalculation.Entities.Abstract
@@ -20,5 +21,10 @@ namespace TaxCalculation.Entities.Abstract
         }
 
         public abstract decimal TaxCalculation();
+
+        public override string ToString()
+        {
+            return $"{this.Name}: $ {this.TaxCalculation().ToString("F2",CultureInfo.InvariantCulture)}";
+        }
     }
 }
